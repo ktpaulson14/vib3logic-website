@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vib3logic - AI-Powered Applications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            position: relative;
+            z-index: 100;
+            max-width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #06b6d4;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(6, 182, 212, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #06b6d4;
+        }
+
+        .feature-card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .apps {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .apps h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .app-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 2px solid rgba(6, 182, 212, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-card:hover {
+            border-color: rgba(6, 182, 212, 0.8);
+            box-shadow: 0 30px 60px rgba(6, 182, 212, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .app-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #06b6d4;
+        }
+
+        .app-card p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .app-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            color: #0f172a;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .app-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
+            color: #64748b;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            nav { padding: 1rem 1.5rem; }
+            nav ul { gap: 1rem; }
+            .brand-name { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="48" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+                <g stroke="url(#logoGradient)" stroke-width="2" fill="none">
+                    <circle cx="50" cy="50" r="8" fill="url(#logoGradient)"/>
+                    <circle cx="50" cy="50" r="20" fill="none"/>
+                    <circle cx="50" cy="50" r="32" fill="none"/>
+                    <circle cx="50" cy="22" r="4" fill="url(#logoGradient)"/>
+                    <circle cx="70" cy="70" r="4" fill="url(#logoGradient)"/>
+                    <circle cx="30" cy="70" r="4" fill="url(#logoGradient)"/>
+                    <circle cx="78" cy="50" r="4" fill="url(#logoGradient)"/>
+                    <circle cx="22" cy="50" r="4" fill="url(#logoGradient)"/>
+                    <line x1="50" y1="50" x2="50" y2="22" stroke="url(#logoGradient)"/>
+                    <line x1="50" y1="50" x2="70" y2="70" stroke="url(#logoGradient)"/>
+                    <line x1="50" y1="50" x2="30" y2="70" stroke="url(#logoGradient)"/>
+                    <line x1="50" y1="50" x2="78" y2="50" stroke="url(#logoGradient)"/>
+                    <line x1="50" y1="50" x2="22" y2="50" stroke="url(#logoGradient)"/>
+                </g>
+            </svg>
+            <span class="brand-name">Vib3logic</span>
+        </div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#apps">Apps</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vib3logic</h1>
+            <p>Advanced AI-Powered Applications</p>
+            <p style="font-size: 1.1rem; color: #94a3b8;">Intelligent solutions for modern challenges</p>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Why Choose Vib3logic?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered</h3>
+                <p>Cutting-edge artificial intelligence technology to automate and enhance your workflow</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Built for speed and performance, delivering instant results when you need them</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Reliable</h3>
+                <p>Enterprise-grade security with reliability you can depend on</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Precision Focused</h3>
+                <p>Designed with accuracy and attention to detail in every interaction</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Data Insights</h3>
+                <p>Transform raw data into actionable insights with advanced analytics</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Innovation First</h3>
+                <p>Continuously evolving with the latest AI and technology advancements</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="apps" class="apps">
+        <h2>Our Applications</h2>
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-icon">🔧</div>
+                <h3>Maintenance App</h3>
+                <p>Streamline your maintenance operations with our intelligent scheduling and tracking system. Keep your equipment running smoothly with predictive maintenance alerts and comprehensive documentation.</p>
+                <a href="https://maintenance-app-green.vercel.app/" class="app-link">Launch App →</a>
+            </div>
+            <div class="app-card">
+                <div class="app-icon">🤝</div>
+                <h3>Personal Assistant</h3>
+                <p>Your intelligent companion for productivity. Get personalized assistance with task management, scheduling, and smart recommendations powered by advanced AI algorithms.</p>
+                <a href="https://personal-assistant-lyart-xi.vercel.app/" class="app-link">Launch App →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Vib3logic. All rights reserved. | Advancing technology through innovation</p>
+    </footer>
+</body>
+</html>
